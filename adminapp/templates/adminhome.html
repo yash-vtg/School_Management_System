@@ -1,0 +1,64 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<div class="row p-5">
+    <div class="col-sm-12">
+        <h1 class="text-center">Admin Dashboard</h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-4">
+            <!-- Card 1 Start -->
+            <div class="card p-4 text-center">
+                <h1><i class="fa-solid fa-user-graduate fa-2x ms-4"></i><span class="fs-1 ms-5">{{stu_count}}</span>
+                </h1>
+                <h2 class="text-center">Number of Students</h2>
+            </div>
+            <!-- Card 1 end -->
+        </div>
+        <div class="col-sm-4">
+            <!-- Card 2 Start -->
+            <div class="card p-4 text-center">
+                <h1><i class="fa-solid fa-graduation-cap fa-2x ms-4"></i><span class="fs-1 ms-5">{{tea_count}}</span>
+                </h1>
+                <h2 class="text-center">Number of Teachers</h2>
+            </div>
+            <!-- Card 2 end -->
+        </div>
+        <div class="col-sm-4">
+            <!-- Card 3 Start -->
+            <div class="card p-4 text-center">
+                <h1><i class="fa-solid fa-school fa-2x ms-4"></i><span class="fs-1 ms-5">{{ccount}}</span></h1>
+                <h2 class="text-center">Number of Classes</h2>
+            </div>
+            <!-- Card 3 end -->
+        </div>
+        <div class="col-sm-4">
+            <!-- Card 4 Start -->
+            <div class="card p-4 text-center">
+                <h1><i class="fa-solid fa-calendar-check fa-2x ms-4"></i><span class="fs-1 ms-5">{{atten}}</span>
+                </h1>
+                <h2 class="text-center">Number of Attendence</h2>
+            </div>
+            <!-- Card 4 end -->
+        </div>
+        <div class="col-sm-4">
+            <!-- Card 5 Start -->
+            <div class="card p-4 text-center">
+                <h1><i class="fa-solid fa-book fa-2x ms-4"></i><span class="fs-1 ms-5">{{sub}}</span></h1>
+                <h2 class="text-center">Number of Subjects</h2>
+            </div>
+            <!-- Card 5 end -->
+        </div>
+        <div class="col-sm-4">
+            <!-- Card 6 Start -->
+            <div class="card p-4 text-center">
+                <h1><i class="fa-solid fa-bell fa-2x ms-4"></i><span class="fs-1 ms-5">{{notification}}</span>
+                </h1>
+                <h2 class="text-center">Number of Notification</h2>
+            </div>
+            <!-- Card 6 end -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

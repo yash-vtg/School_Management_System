@@ -1,0 +1,22 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">
+            View Your Notifications
+        </h1>
+        <form method="post">
+            <div class="table-responsive">
+                <table class="table">
+                    {% for n in nt %}
+                    <td>{{n.text}}</td>
+                    <td><span style="font-size:larger;"><a href="{{n.doc.url}}">{{n.doc}}</a></span></td>
+                    <td>{{n.created_date}}</td>
+                    {% endfor %}
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

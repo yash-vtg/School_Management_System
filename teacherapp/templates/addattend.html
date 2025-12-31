@@ -1,0 +1,54 @@
+{% extends 'teacherbase.html' %}
+{% load static %}
+{% block teacher %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Add Attendence</h1>
+        <table class="table">
+            <tr>
+                <th>S. No.</th>
+                <th>Roll Number</th>
+                <th>Student I.D.</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Attendence</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            {% for s in st %}
+            <form method="post">
+                {% csrf_token %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <input type="text" name="rollno" value="{{s.rollno}}" class="form-control" readonly >
+                    </td>
+                    <td>
+                        <input type="text" name="sid" value="{{s.id}}" class="form-control border-0" readonly>
+                    </td>
+                    <td>
+                        <input type="text" name="name" value="{{s.name}}" class="form-control border-0" readonly>
+                    </td>
+                    <td>{{s.sclass}}</td>
+                    <td>
+                        <select name="status" class="form-select border-0">
+                            <option value="Absent">Absent</option>
+                            <option value="Present">Present</option>
+                            <option value="Leave">Leave</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="date" name="created_date" class="form-control border-0" required>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-warning">Mark</button>
+                    </td>
+                </tr>
+            </form>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

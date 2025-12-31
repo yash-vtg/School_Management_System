@@ -1,0 +1,49 @@
+{% extends 'teacherbase.html' %}
+{% load static %}
+{% block teacher %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Teacher Dashboard</h1>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-sm-6">
+        <!-- Card 1 Start -->
+        <div class="card" style="width: 25rem;">
+            <h1><i class="fa-solid fa-user-graduate fa-2x ms-4"></i><span class="fs-5 ms-5">{{stu_count}}</span>
+            </h1>
+            <h2 class="text-center">Number of Students</h2>
+        </div>
+        <!-- Card 1 end -->
+    </div>
+    <div class="col-sm-6">
+        <!-- Card 2 Start -->
+        <div class="card" style="width: 25rem;">
+            <h1><i class="fa-solid fa-school fa-2x ms-4"></i><span class="fs-5 ms-5">{{ccount}}</span></h1>
+            <h2 class="text-center">Number of Classes</h2>
+        </div>
+        <!-- Card 2 end -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <!-- Card 3 Start -->
+        <div class="card" style="width: 25rem;">
+            <h1><i class="fa-solid fa fa-calendar-check-o fa-2x ms-4"></i><span class="fs-5 ms-5">{{atten}}</span>
+            </h1>
+            <h2 class="text-center">Number of Attendence</h2>
+        </div>
+        <!-- Card 3 end -->
+    </div>
+    <div class="col-sm-6">
+        <!-- Card 4 Start -->
+        <div class="card" style="width: 25rem;">
+            <h1><i class="fa-solid fa-book fa-2x ms-4"></i><span class="fs-5 ms-5">{{sub}}</span></h1>
+            <h2 class="text-center">Number of Subjects</h2>
+        </div>
+        <!-- Card 4 end -->
+    </div>
+</div>
+
+{% endblock %}

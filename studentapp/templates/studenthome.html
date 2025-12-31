@@ -1,0 +1,30 @@
+{% extends 'studentbase.html' %}
+{% load static %}
+{% block student %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Student's Dashboard</h1>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-sm-6">
+        <!-- Card 1 Start -->
+        <div class="card" style="width: 25rem;">
+            <h1><i class="fa-solid fa-user-graduate fa-2x ms-4"></i><span class="fs-5 ms-5">{{stu_count}}</span>
+            </h1>
+            <h2 class="text-center">Students</h2>
+        </div>
+        <!-- Card 1 end -->
+    </div>
+    <div class="col-sm-6">
+        <!-- Card 2 Start -->
+        <div class="card" style="width: 25rem;">
+            <h1><i class="fa-solid fa-book fa-2x ms-4"></i><span class="fs-5 ms-5">{{sub}}</span></h1>
+            <h2 class="text-center">Number of Subjects</h2>
+        </div>
+        <!-- Card 2 end -->
+    </div>
+</div>
+
+{% endblock %}

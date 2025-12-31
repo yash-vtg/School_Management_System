@@ -1,0 +1,90 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Edit Details About Teacher</h1>
+      <form method="post">
+        {% csrf_token %}
+        <table class="table">
+          <tr>
+            <td>Enter Teacher Name</td>
+            <td>
+              <input type="text" name="name" value="{{ tl.name }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Teacher's Father Name</td>
+            <td>
+              <input type="text" name="fname" value="{{ tl.fname }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Teacher's Mother Name</td>
+            <td>
+              <input type="text" name="mname" value="{{ tl.mname }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Select Gender</td>
+            <td>
+              <select name="gender" class="form-select" value="{{ tl.gender }}">
+                <option value="">--Select Gender--</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Custom</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Date of Birth</td>
+            <td>
+              <input type="date" name="dob" value="{{ tl.dob }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Contact Number</td>
+            <td>
+              <input type="number" name="contactno" value="{{ tl.contactno }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter E-mail Address</td>
+            <td>
+              <input type="email" name="emailaddress" value="{{ tl.emailaddress }}" class="form-control" required />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Teacher's Class</td>
+            <td>
+              <input type="text" name="tclass" value="{{ tl.tclass }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter the Address</td>
+            <td>
+              <textarea name="address" value="{{ tl.address }}" class="form-control"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>Salary</td>
+            <td>
+              <input type="number" name="salary" value="{{ tl.salary }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Your Qualification</td>
+            <td>
+              <input type="text" name="qualification" value="{{ tl.qualification }}" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <button type="submit" class="btn btn-success">Save</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+{% endblock %}

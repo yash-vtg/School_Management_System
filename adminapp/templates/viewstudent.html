@@ -1,0 +1,54 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">View Students</h1>
+      <form method="post">
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>Roll Number</th>
+              <th>Name</th>
+              <th>Father Name</th>
+              <th>Mother Name</th>
+              <th>Gender</th>
+              <th>Date of Birth</th>
+              <th>Contact NO.</th>
+              <th>E-mail Address</th>
+              <th>Address</th>
+              <th>Class of Student</th>
+              <th>feespaid</th>
+              <th>duefees</th>
+              <th>Password</th>
+              <th>Creation Date</th>
+              <th>Action</th>
+            </tr>
+            {% for t in stul %}
+              <tr>
+                <td>{{ t.rollno }}</td>
+                <td>{{ t.name }}</td>
+                <td>{{ t.fname }}</td>
+                <td>{{ t.mname }}</td>
+                <td>{{ t.gender }}</td>
+                <td>{{ t.dob }}</td>
+                <td>{{ t.contactno }}</td>
+                <td>{{ t.emailaddress }}</td>
+                <td>{{ t.address }}</td>
+                <td>{{ t.sclass }}</td>
+                <td>{{ t.feespaid }}</td>
+                <td>{{ t.duefees }}</td>
+                <td>{{ t.password }}</td>
+                <td>{{ t.created_date }}</td>
+                <td>
+                  <a href="{% url 'adminapp:delstudent' rollno=t.rollno %}" class="btn btn-sm btn-danger">Delete</a>
+                  <a href="{% url 'adminapp:editstu' rollno=t.rollno %}" class="btn btn-sm btn-success">Edit</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
