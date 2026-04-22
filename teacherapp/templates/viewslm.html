@@ -5,6 +5,26 @@
 <div class="row">
     <div class="col-sm-12">
         <h1 class="text-center">View Self Learning Material</h1>
+        <form method="post">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Title</th>
+                        <th>Class</th>
+                        <th>Learning Material</th>
+                        <th>Date</th>
+                    </tr>
+                    {% for l in vsm %}
+                    <tr>
+                        <td>{{l.title}}</td>
+                        <td>{{l.tclass}}</td>
+                        <td><span style="font-size:larger;"><a href="{{l.sm}}">{{l.sm}}</a></span></td>
+                        <td>{{l.created_date}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </form>
     </div>
 </div>
 

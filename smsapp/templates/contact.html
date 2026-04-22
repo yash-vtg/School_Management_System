@@ -9,7 +9,7 @@ Contact Us
 
 <style>
     .back {
-        background: url("{% static 'images/sms15.jpg' %}");
+        background: url("{% static 'images/sms.jpg' %}");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -18,7 +18,7 @@ Contact Us
 <div class="row">
     <div class="col-sm-12">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7120.4082585547385!2d81.54194!3d26.833459!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a2b20aede4817%3A0x3b01691a0b580533!2sSeth%20Anandram%20Jaipuria%20School%2C%20Ved%20Campus%2C%20Barabanki%20Mob.%209415520130!5e0!3m2!1sen!2sin!4v1725885068114!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7120.4082585547385!2d81.54194!3d26.833459!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a2b20aede4817%3A0x3b01691a0b580533!2sSeth%20Anandram%20Jaipuria%20School%2C%20Ved%20Campus%2C%20Barabanki%20Mob.%209415520130!5e0!3m2!1sen!2sin!4v1725885068114!5m2!1sen!2s"
             width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -46,9 +46,12 @@ Contact Us
                     <div class="col-sm-12 mt-3">
                         <label for="gender"
                             class="form-label fw-bold bg-primary text-light px-3 rounded-4">Gender</label>
-                        <input name="gender" type="radio" value="male" class="form-check-input"> Male
-                        <input name="gender" type="radio" value="female" class="form-check-input"> Female
-                        <input name="gender" type="radio" value="other" class="form-check-input"> Other
+                        <input name="gender" type="radio" value="male" class="form-check-input"> <span
+                            class="text-light"> Male </span>
+                        <input name="gender" type="radio" value="female" class="form-check-input"> <span
+                            class="text-light"> Female </span>
+                        <input name="gender" type="radio" value="other" class="form-check-input"> <span
+                            class="text-light"> Other </span>
                     </div>
                     <div class="col-sm-12">
                         <label for="address"

@@ -1,8 +1,11 @@
-from django.shortcuts import *
-from adminapp.models import *
-from . models import *
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.cache import cache_control
+from django.shortcuts import render,redirect
+from django.utils import timezone
+from django.shortcuts import *
+from teacherapp.models import *
+from adminapp.models import *
+from . models import *
 
 # Create your views here.
 @cache_control(no_store = True,no_cache = True,must_revalidate = True)
@@ -85,18 +88,94 @@ def viewattendance(req):
        return redirect('login')
 
 @cache_control(no_store = True,no_cache = True,must_revalidate = True)
+def addstudent(req):
+    try:
+      if req.session['teacherid']!=None:
+        teacherid = req.session['teacherid']
+        cl = Classes.objects.all()
+        if req.method == "POST":
+          rollno = req.POST['rollno']
+          name = req.POST['name']
+          fname = req.POST['fname']
+          mname = req.POST['mname']
+          gender = req.POST['gender']
+          dob = req.POST['dob']
+          contactno = req.POST['contactno']
+          emailaddress = req.POST['emailaddress']
+          address = req.POST['address']
+          sclass = req.POST['sclass']
+          feespaid = req.POST['feespaid']
+          duefees = req.POST['duefees']
+          created_date = timezone.now()
+          stul = Student(rollno=rollno,name=name,fname=fname,mname=mname,gender=gender,dob=dob,contactno=contactno,emailaddress=emailaddress,address=address,sclass=sclass,feespaid=feespaid,duefees=duefees,password="54321",created_date=created_date)
+          stul.save()
+          return redirect('teacherapp:Tviewstudent')
+        return render(req,'Taddstudent.html',{'teacherid':teacherid,'cl':cl})
+    except KeyError:
+       return redirect('login')
+    
+@cache_control(no_store = True,no_cache = True,must_revalidate = True)
+def viewstudent(req):
+    try:
+      if req.session['teacherid']!=None:
+        teacherid = req.session['teacherid']
+        tea = Teacher.objects.get()
+        stul = Student.objects.filter(sclass=tea.tclass)
+        return render(req,'Tviewstudent.html',{'teacherid':teacherid,'stul':stul})
+    except KeyError:
+       return redirect('login')
+
+def delstudent(req,rollno):
+    try:
+      if req.session['teacherid']!=None:
+         Student.objects.get(rollno=rollno).delete()
+         return redirect('teacherapp:Tviewstudent')
+    except KeyError:
+       return redirect('login')
+
+@cache_control(no_store = True,no_cache = True,must_revalidate = True)
+def editstu(req,rollno):
+    try:
+      if req.session['teacherid']!=None:
+        teacherid = req.session['teacherid']
+        cl = Classes.objects.all()
+        stul = Student.objects.get(rollno=rollno)
+        if req.method == 'POST':
+          rollno = req.POST['rollno']
+          name = req.POST['name']
+          fname = req.POST['fname']
+          mname = req.POST['mname']
+          gender = req.POST['gender']
+          dob = req.POST['dob']
+          contactno = req.POST['contactno']
+          emailaddress = req.POST['emailaddress']
+          address = req.POST['address']
+          sclass = req.POST['sclass']
+          feespaid = req.POST['feespaid']
+          duefees = req.POST['duefees']
+          created_date = timezone.now()
+          Student.objects.filter(rollno=rollno).update(rollno=rollno,name=name,fname=fname,mname=mname,gender=gender,dob=dob,contactno=contactno,emailaddress=emailaddress,address=address,sclass=sclass,feespaid=feespaid,duefees=duefees,password="54321",created_date=created_date)
+          return redirect('teacherapp:Tviewstudent')
+        return render(req,'editstu.html',{'teacherid':teacherid,'stul':stul,'cl':cl})
+    except KeyError:
+       return redirect('login')
+
+
+@cache_control(no_store = True,no_cache = True,must_revalidate = True)
 def addslm(req):
     try:
       if req.session['teacherid']!=None:
         teacherid = req.session['teacherid']
         teacher = Teacher.objects.get(emailaddress=teacherid)
+        cl = Classes.objects.all()
         if req.method == "POST":
            title = req.POST['title']
            sm = req.FILES['sm']
-           slm = StudyMaterial(title=title,sm=sm,tclass=teacher.tclass)
+           tclass = req.POST['tclass']
+           slm = StudyMaterial(title=title,sm=sm,tclass=tclass, fk=teacher)
            slm.save()
            return redirect('teacherapp:viewslm')
-        return render(req,'addslm.html',{'teacher':teacher})
+        return render(req,'addslm.html',{'teacher':teacher, 'cl' : cl})
     except KeyError:
        return redirect('login')
 
@@ -106,7 +185,8 @@ def viewslm(req):
       if req.session['teacherid']!=None:
         teacherid = req.session['teacherid']
         teacher = Teacher.objects.get(emailaddress=teacherid)
-        return render(req,'viewslm.html',{'teacher':teacher})
+        vsm = StudyMaterial.objects.filter(fk = teacher)
+        return render(req,'viewslm.html',{'teacherid':teacherid,'vsm':vsm})
     except KeyError:
        return redirect('login')
     

@@ -1,7 +1,6 @@
-{% extends 'adminbase.html' %}
+{% extends 'teacherbase.html' %}
 {% load static %}
-{% block admin %}
-
+{% block teacher %}
 <div class="row">
     <div class="col-sm-12">
         <h1 class="text-center">View Students</h1>
@@ -42,9 +41,9 @@
                         <td>{{ t.password }}</td>
                         <td>{{ t.created_date }}</td>
                         <td>
-                            <a href="{% url 'adminapp:delstudent' rollno=t.rollno %}"
+                            <a href="{% url 'teacherapp:delstudent' rollno=t.rollno %}"
                                 class="btn btn-sm btn-danger">Delete</a>
-                            <a href="{% url 'adminapp:editstu' rollno=t.rollno %}"
+                            <a href="{% url 'teacherapp:editstu' rollno=t.rollno %}"
                                 class="btn btn-sm btn-success">Edit</a>
                         </td>
                     </tr>
@@ -54,4 +53,5 @@
         </form>
     </div>
 </div>
+
 {% endblock %}

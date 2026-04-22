@@ -12,4 +12,8 @@ urlpatterns = [
     path('viewslm/',views.viewslm,name='viewslm'),
     path('tchangepass/',views.tchangepass,name='tchangepass'),
     path('teacherlogout/',views.teacherlogout,name='teacherlogout'),
+    path('addstudent/',views.addstudent,name = 'addstudent'),
+    path('viewstudent/',views.viewstudent,name = 'viewstudent'),
+    path('editstu/<rollno>',views.editstu,name = 'editstu'),
+    path('delstudent/<rollno>',views.delstudent,name = 'delstudent'),
 ]

@@ -183,7 +183,6 @@ def addstudent(req):
     except KeyError:
        return redirect('login')
 
-
 @cache_control(no_store = True,no_cache = True,must_revalidate = True)
 def viewstudent(req):
     try:
@@ -191,14 +190,6 @@ def viewstudent(req):
         adminid = req.session['adminid']
         stul = Student.objects.all()
         return render(req,'viewstudent.html',{'adminid':adminid,'stul':stul})
-    except KeyError:
-       return redirect('login')
-    
-def delstudent(req,rollno):
-    try:
-      if req.session['adminid']!=None:
-         Student.objects.get(rollno=rollno).delete()
-         return redirect('adminapp:viewstudent')
     except KeyError:
        return redirect('login')
      
@@ -229,6 +220,14 @@ def editstu(req,rollno):
     except KeyError:
        return redirect('login')
     
+def delstudent(req,rollno):
+    try:
+      if req.session['adminid']!=None:
+         Student.objects.get(rollno=rollno).delete()
+         return redirect('adminapp:viewstudent')
+    except KeyError:
+       return redirect('login')
+
 @cache_control(no_store = True,no_cache = True,must_revalidate = True)
 def addteacher(req):
     try:
@@ -237,6 +236,7 @@ def addteacher(req):
         cl = Classes.objects.all()
         if req.method == "POST":
           name = req.POST['name']
+          pic = req.POST['pic']
           fname = req.POST['fname']
           mname = req.POST['mname']
           gender = req.POST['gender']
@@ -248,7 +248,7 @@ def addteacher(req):
           salary = req.POST['salary']
           qualification = req.POST['qualification']
           created_date = timezone.now()
-          tl = Teacher(name=name,fname=fname,mname=mname,gender=gender,dob=dob,contactno=contactno,emailaddress=emailaddress,tclass=tclass,address=address,salary=salary,qualification=qualification,password="12345",created_date=created_date)
+          tl = Teacher(name=name,pic=pic,fname=fname,mname=mname,gender=gender,dob=dob,contactno=contactno,emailaddress=emailaddress,tclass=tclass,address=address,salary=salary,qualification=qualification,password="12345",created_date=created_date)
           tl.save()
           return redirect('adminapp:viewteacher')
         return render(req,'addteacher.html',{'adminid':adminid,'cl':cl})

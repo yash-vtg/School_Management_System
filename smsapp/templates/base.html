@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="shortcut icon" href="{% static 'images/favicon.jpg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
     <script src="{% static 'js/all.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
     <style>
@@ -19,11 +19,11 @@
             background-color: #131de2;
         }
 
-        .abcd{
+        .abcd {
             transition: 0.7s;
         }
 
-        .abcd:hover{
+        .abcd:hover {
             background-color: rgb(148, 148, 228) !important;
             color: black !important;
             border-radius: 30px;
@@ -61,29 +61,29 @@
             <div class="col-sm-10 mx-auto">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="{% static 'images/sms1.jpeg' %}" alt="Server Error" class="img-fluid">
+                        <img src="{% static 'images/logo.jpg' %}" alt="Server Error" class="img-fluid w-50">
                     </div>
                     <div class="col-sm-9">
-                        <div class="row">
+                        <div class="row pt-2">
                             <div class="col-sm-5 text-center">
                                 <b class="text-primary">
                                     <i class="fas fa-phone fs-2"></i>Call Us
                                 </b>
-                                9044554046 | 9044554045
+                                123456789 | 123456789
                             </div>
                             <div class="col-sm-6 text-center">
                                 <b class="text-primary">
                                     <i class="fas fa-envelope fs-2"></i> Mail Us
                                 </b>
-                                admission.sadhucampus@jaipuria.school
+                                abcd@gmail.com
                             </div>
                             <div class="col-sm-1">
                                 <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
                             </div>
                         </div>
                         <!-- NavBar Start -->
-                        <div class="row">
-                            <div class="col-sm-5 mx-auto">
+                        <div class="row pt-2">
+                            <div class="col-sm-9 mx-auto">
                                 <nav class="navbar navbar-expand-lg">
                                     <div class="container-fluid">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -95,11 +95,13 @@
                                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                                 <li class="nav-item">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="{% url 'index' %}">Home</a>
+                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3"
+                                                        href="{% url 'index' %}">Home</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3"
+                                                        href="#" role="button" data-bs-toggle="dropdown"
+                                                        aria-expanded="false">
                                                         About Us
                                                     </a>
                                                     <ul class="dropdown-menu">
@@ -110,7 +112,7 @@
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item" href="{% url 'about' %}">
-                                                                About School
+                                                                About College
                                                             </a>
                                                         </li>
                                                         <li>
@@ -120,7 +122,7 @@
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item" href="{% url 'chairman' %}">
-                                                                Chairman's Message
+                                                                About BTEUP
                                                             </a>
                                                         </li>
                                                         <li>
@@ -133,62 +135,25 @@
                                                                 School Management Team Members
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a class="dropdown-item"
-                                                                href="https://jaipuria.edu.in/contact-us/">
-                                                                Group And Institutions
-                                                            </a>
-                                                        </li>
                                                     </ul>
                                                 </li>
-                                                </li>
-                                                <!-- <li class="nav-item">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="#">Academics</a>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Facilities
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Transport</a></li>
-                                                        <li><a class="dropdown-item" href="#">Medical Room</a></li>
-                                                        <li><a class="dropdown-item" href="#">Smart Class</a></li>
-                                                        <li><a class="dropdown-item" href="#">Other Facilities</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Admission
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Admission
-                                                                Procedure</a></li>
-                                                        <li><a class="dropdown-item" href="#">Download
-                                                                Prospectus</a></li>
-                                                        <li><a class="dropdown-item" href="#">Rules &
-                                                                Regulations</a></li>
-                                                        <li><a class="dropdown-item" href="#">Fee Structure</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Media
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">News Event</a></li>
-                                                        <li><a class="dropdown-item" href="#">Video Gallery</a></li>
-                                                    </ul>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="#">Career</a>
-                                                </li> -->
-                                                <li class="nav-item">
-                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3" href="{% url 'contact' %}">
+                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3"
+                                                        href="{% url 'contact' %}">
                                                         Contact Us
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3"
+                                                        href="#">
+                                                        BTEUP Portal
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link px-3 me-1 abcd bg-primary text-light rounded-3"
+                                                        href="#">
+                                                        Urise Portal
                                                     </a>
                                                 </li>
                                             </ul>
@@ -222,7 +187,7 @@
                                 <li class="mt-2">
                                     <a href="tel:+91 8429054648" class="text-light" style="text-decoration: none"><i
                                             class="fa-solid fa-phone"></i> Ph:
-                                        <span style="color: grey">+91-9044554045</span></a><br />
+                                        <span style="color: grey">+91-123456789</span></a><br />
                                 </li>
                                 <li class="mt-2">
                                     <a href="mailto:abcd@gmail.com" class="text-light" style="text-decoration: none"><i
@@ -235,10 +200,9 @@
                                         Location:
                                         <span style="color: grey">
                                             <span style="color: blanchedalmond;">
-                                                Seth Anandram Jaipuria School, Sadhu Campus, Barabanki:
+                                                Government Polytechnic Roorkee, Baheri, Bareilly:
                                             </span>
-                                            Village -Jhansapurwa, Post-Madanpur,Tehsil-Fatehpur, Barabanki
-                                            Pincode-225305
+                                            Government Polytechnic Roorkee, Baheri, Bareilly
                                         </span>
                                     </a>
                                 </li>
@@ -298,20 +262,17 @@
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="ms-5 mb-5 py-3">
-                            <h5 class="text-light">Courses</h5>
+                        <div class="ms-0 mb-5 py-3">
+                            <h5 class="text-light"> Diploma Courses</h5>
                             <ul class="list-unstyled footer-links">
                                 <li>
-                                    <a href="#" style="text-decoration: none; color: grey">SEO Business</a>
+                                    <a href="#" style="text-decoration: none; color: grey">Computer Science and Engineering</a>
                                 </li>
                                 <li>
-                                    <a href="#" style="text-decoration: none; color: grey">Digital Marketing</a>
+                                    <a href="#" style="text-decoration: none; color: grey">Mechanical Engineering(Production)</a>
                                 </li>
                                 <li>
-                                    <a href="#" style="text-decoration: none; color: grey">Graphic Design</a>
-                                </li>
-                                <li>
-                                    <a href="#" style="text-decoration: none; color: grey">Social Marketing</a>
+                                    <a href="#" style="text-decoration: none; color: grey">Textile Technology</a>
                                 </li>
                             </ul>
                         </div>

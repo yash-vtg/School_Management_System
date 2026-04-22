@@ -1,6 +1,6 @@
-{% extends 'adminbase.html' %}
+{% extends 'teacherbase.html' %}
 {% load static %}
-{% block admin %}
+{% block teacher %}
 
 <div class="row">
     <div class="col-sm-12">
@@ -70,6 +70,7 @@
                             <option value="{{ c.class_name }}">{{ c.class_name }}</option>
                             {% endfor %}
                         </select>
+                        <small class="text-danger">*Use your class to add here.</small>
                     </td>
                 </tr>
                 <tr>
@@ -101,4 +102,5 @@
         </form>
     </div>
 </div>
+
 {% endblock %}
